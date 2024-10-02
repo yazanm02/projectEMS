@@ -23,6 +23,25 @@
         </form>
     </div>
     <script>
+var infoUser=JSON.parse(localStorage.getItem("infoUser"));
+
+if(infoUser==null){
+    userData=`[
+    {
+    "firstName": "yazan",
+    "lastName": "masafeh",
+    "birthDate": "2002-02-08",
+    "email": "yazan.masafeh02@gmail.com",
+    "password": "Yazan@2002",
+    "mobileNumber": "1234567890"
+}
+    ]`
+
+    localStorage.setItem('infoUser', userData);
+
+}
+
+
    document.getElementById('login-form').addEventListener('submit', function(event) {
      event.preventDefault();
     var email=document.getElementById('email').value;
