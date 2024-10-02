@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container" id="login-form">
+        <form class="login-form" id="login-form">
+            <h2>Login</h2>
+            <div class="input-group" id="login-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Login</button>
+          
+        </form>
+    </div>
+    <script>
+   document.getElementById('login-form').addEventListener('submit', function(event) {
+     event.preventDefault();
+    var email=document.getElementById('email').value;
+    console.log(email);
+
+    var password=document.getElementById('password').value;
+    console.log(password);
+
+    var userData=JSON.parse(localStorage.getItem("infoUser"));
+    // console.log(userData);
+    // console.log(userData[0].email);
+    // console.log(userData[0]);
+    // console.log(email);
+    // for(var i=0;userData.length-1;i++){
+    //     console.log("ghjjjjjjjjjjj");
+    //     // // if(email ==userData[i].email && password == userData[i].password)
+    //     // // {
+    //     // //     console.log("true");
+    //     // //     location.replace("dashboard.html");
+    //     // //     // localStorage.setItem('login',1);
+
+    //     // // }else
+    //     // // {
+    //     // //     console.log("false");
+    //     // //     // localStorage.setItem('login', 0);
+
+    //     // }
+    // } 
+  
+var i = 0;
+
+do {
+
+    console.log(email);
+    console.log(userData[0].email);
+    console.log(password);
+    console.log(userData[0].password);
+if(email ==userData[i].email && password == userData[i].password)
+{
+            console.log("true");
+            location.replace("dashboard.html");
+            localStorage.setItem('login',1);
+
+}else
+ {
+     console.log("false");
+    localStorage.setItem('login', 0);
+
+       }
+        ++i;
+} while (i < userData.length-1);
+
+
+
+ });
+
+    </script>
+</body>
+</html>
